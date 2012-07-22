@@ -1,0 +1,15 @@
+Uploaderの準備
+
+1, 一連のスクリプト、htmlをアップロード
+　.htaccessを変更するなりしてcgiを有効にする
+
+2, Uploader_settings.rbを準備
+	ファイルサイズ、ホームページ、ファイルのカテゴリ名などを編集
+
+3, Storageディレクトリを準備
+	アップロードされるファイルを置くためのstorageディレクトリを作製。
+	そこにパーミッション許可してください
+
+	*ex1> mkdir storage
+	*ex2> chmod 777 storage
+

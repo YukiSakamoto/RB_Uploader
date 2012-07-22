@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+/*============================================================
+	Default Style
+============================================================*/
+* {
+	margin: 3;
+	padding: 0;
+}
+
+body {
+	font-family: sans-serif, verdana;
+	font-size: 15px;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing:  0;
+}
+
+
+/*============================================================
+	Title
+============================================================*/
+#uploader_title {
+	color:#0000ff;
+	font-style:normal;
+	background-color:#D0D8E0;
+	font-size:x-large;
+	/*width:830;*/
+	text-indent:1%;
+}
+
+/*============================================================
+	Table
+============================================================*/
+table#files {
+	border-collapse: collapse;
+	border: 1px;
+}
+/*========================================
+	Table Header
+========================================*/
+table#files thead {
+	border-bottom :double;
+}
+
+table#files thead th{
+	text-align: center;
+	background-color:#00ffff;
+	font-size: 15px;
+}
+
+table#files thead tr th.number {
+	text-align: right;
+}
+
+/*========================================
+	Table Body
+========================================*/
+table#files tbody tr td{
+	text-align: center;
+	border-bottom: 1px solid;
+	font-size: 15px;
+}
+
+table#files tbody tr td.comment {
+	text-align: left;
+}
+
+table#files tbody tr td.number {
+	text-align: right;
+}

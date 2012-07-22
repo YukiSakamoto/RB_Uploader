@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<title><%= UploaderName %></title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="test.css" type="text/css">
+	</head>
+
+	<body>
+		<h1 id="uploader_title"> <%= UploaderName %> </h1>
+
+		<!-- Upload Form -->
+		<form action="./uploader_core.cgi" method="POST" enctype="multipart/form-data">
+			<fieldset>
+				<legend> File Upload </legend>
+				<label>Your Name<br>
+					<input type="text" name="name">
+				</label><br>
+				<label>Comment<br>
+					<input type="text" name="comment" size="100">
+				</label><br>
+				<label>File
+					<% if LimitFileSize %>
+					<%= "(LimitSize: #{LimitFileSize/1024}KB)" %>
+					<% end %> 
+				</label><br>
+				<input type="file" name="upload_file"><br>
+
+				<label for="categoly">Category</label>
+
+				<select name="category">
+					<%= registration_category %>
+				</select> 
+
+				<input type="hidden" name="ope_code" value="file_upload">
+				<input type="submit" value="SEND">
+			</fieldset>
+		</form>
+
+		<form action="./uploader_frontpage.cgi" method="POST">
+			<select name="category">
+			<%= view_category %>
+			</select> 			
+			<input type="submit" value="Filter">    Current = <%= current_category_name %>
+
+		</form>
+		<!-- File List -->
+		<hr>
+		<div align="center">
+		<table id="files">
+			<thead>
+			<tr id="content">
+				<th width="5%"  Align="left" class="number"> No. </th>
+				<!--th width="15, 20, 15, 30, 15%" Align="left"> Name </th-->
+				<th width="120px" Align="left" class="name"> Name </th>
+				<th width="200px" Align="left" class="date"> Date </th>
+				<th width="150px" Align="left" class="filename"> Filename </th>
+				<th width="400px" Align="left" class="comment"> Comment </th>
+				<th width="120px" Align="left" class="filesize"> Size(Kbytes) </th>
+			</tr>
+			</thead>
+
+			<tbody>
+			<%= table_main %>
+			</tbody>
+
+		</table>
+		</div>
+		<hr>
+		<form action="./uploader_core.cgi" method="POST" enctype="multipart/form-data" class="rmfils">
+			<fieldset>
+				<legend>File Delete</legend>
+				<label for="number">Number</label>
+				<input type="text" name="number" size="5">
+				<input type="hidden" name="ope_code" value="file_remove">
+				<input type="submit" value="Delete">
+			</fieldset>
+		</form>
+		<form action="./uploader_core.cgi" method="POST" enctype="multipart/form-data" class="chcomment">
+			<fieldset>
+				<legend>Change Comment</legend>
+				<label for="number">Number<input type="text" name="number" size="5"></label>
+				<label for="comment"> Comment <input type="text" name="comment" size="100"></label>
+				<input type="hidden" name="ope_code" value="change_comment">
+				<input type="submit" value="SEND">
+			</fieldset>
+		</form>
+		<hr>
+		<div id="footer" align="right">
+			<p> TotalSize: <%=total_size/1024 %> Kbytes</p>
+			<% if ParentPage %><%="<a href=\"#{ParentPage}\">Back</a>"%> <% end %>
+		</div>
+		
+	</body>
+</html>
+
+
