@@ -43,10 +43,11 @@ def make_TimeString
 end
 
 def build_temppage(type, retcode, other_msg = nil)
+	redirect_time = 1	#seconds
 	print "Content-type: text/html\n\n"
 	print "<html>\n"
 	print "<head>\n"
-	print "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"1; URL=#{RedirectDestination} \">\n"
+	print "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"#{redirect_time}; URL=#{RedirectDestination} \">\n"
 	print "</head>\n"
 	print "<body>\n"
 
